@@ -1,0 +1,39 @@
+<div class="jumbotron">
+    <h1>Category List</h1>
+    <p>All the categories availables for the books</p>
+</div>
+<div lib-load-categories>
+<article class="info-card" ng-repeat="cat in dataList">
+    <div class="panel panel-default">
+        <header class="panel-heading">
+            <div class="row">
+                <div class="col-xs-7"><strong class="category-name">{{cat.name}}</strong></div>
+                <div class="col-xs-5">
+                    <div class="pull-right">
+                    <i class="material-icons">
+                        <a class="card-icon" ng-href="#category/{{cat._id}}/edit" ng-click="setupToUpdate(cat);">edit </a>
+                    </i>
+                    <i class="material-icons">
+                         <a href="" class="card-icon" data-toggle="modal" data-target="#delete-modal" ng-click="setupToDelete(cat._id);">delete</a>
+                    </i>  
+               
+            </div>
+        </div>
+    </div>
+</header>
+<section class="panel-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>Description</h4>
+            <p class="text-justify">{{cat.description}}</p>
+        </div>
+    </div>
+</section>
+</div>
+</article>
+</div>
+<div class="fixed">
+    <a class="floating-btn btn btn-primary" href="#category/new"><i class="material-icons">add</i></a>
+</div>
+
+<div ng-include="'/admin/delete-dialog-view'"></div>
